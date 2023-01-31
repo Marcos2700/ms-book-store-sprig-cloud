@@ -1,0 +1,40 @@
+#Application configuration
+server:
+  port: 8091
+  error:
+    include-message: always
+
+#To see H2 console in browser
+#http://localhost:8091/h2-console
+#Enabling H2 console
+
+spring:
+  h2:
+    console:
+      enabled: true
+  #================================
+  #Db
+  #================================
+  datasource:
+    url: jdbc:h2:mem:bookDB;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driverClassName: org.h2.Driver
+    platform: h2
+    username: marcos
+    password:
+  #================================
+  #JPA / HIBERANATE
+  #================================
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.H2Dialect
+    properties:
+      hibernate:
+        show_sql: true
+        show_sql_comments: false
+        format_sql: false
+  logging:
+    pattern:
+      console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n"
+
