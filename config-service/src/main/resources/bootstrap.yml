@@ -6,4 +6,11 @@ spring:
     config:
       server:
         git:
-          
+          uri: https://github.com/Marcos2700/ms-book-store-spring-cloud.git
+          searchPaths: config-data
+          username: ${GIT_USERNAME}
+          password: ${GIT_TOKEN}
+  security:
+    user:
+      name: root
+      password: s3cr3t
