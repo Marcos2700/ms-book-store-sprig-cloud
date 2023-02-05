@@ -1,4 +1,4 @@
-package com.example.store.customer.customer.service.repository.entity;
+package com.example.store.customer.repository.entity;
 
 import lombok.Data;
 

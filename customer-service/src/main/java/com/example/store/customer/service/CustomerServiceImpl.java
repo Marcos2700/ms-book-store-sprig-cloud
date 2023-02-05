@@ -1,11 +1,12 @@
-package com.example.store.customer.customer.service.service;
+package com.example.store.customer.service;
 
-import com.example.store.customer.customer.service.repository.CustomerRepository;
-import com.example.store.customer.customer.service.repository.entity.Customer;
-import com.example.store.customer.customer.service.repository.entity.Region;
 //import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.example.store.customer.repository.CustomerRepository;
+import com.example.store.customer.repository.entity.Customer;
+import com.example.store.customer.repository.entity.Region;
 
 import java.util.List;
 

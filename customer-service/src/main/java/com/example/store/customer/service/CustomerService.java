@@ -1,9 +1,9 @@
-package com.example.store.customer.customer.service.service;
-
-import com.example.store.customer.customer.service.repository.entity.Customer;
-import com.example.store.customer.customer.service.repository.entity.Region;
+package com.example.store.customer.service;
 
 import java.util.List;
+
+import com.example.store.customer.repository.entity.Customer;
+import com.example.store.customer.repository.entity.Region;
 
 public interface CustomerService {
     public List<Customer> findCustomerAll();

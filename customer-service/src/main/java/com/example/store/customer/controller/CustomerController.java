@@ -1,8 +1,8 @@
-package com.example.store.customer.customer.service.controller;
+package com.example.store.customer.controller;
 
-import com.example.store.customer.customer.service.repository.entity.Customer;
-import com.example.store.customer.customer.service.repository.entity.Region;
-import com.example.store.customer.customer.service.service.CustomerService;
+import com.example.store.customer.repository.entity.Customer;
+import com.example.store.customer.repository.entity.Region;
+import com.example.store.customer.service.CustomerService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;

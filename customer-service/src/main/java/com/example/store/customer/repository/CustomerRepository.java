@@ -1,9 +1,10 @@
-package com.example.store.customer.customer.service.repository;
+package com.example.store.customer.repository;
 
-import com.example.store.customer.customer.service.repository.entity.Customer;
-import com.example.store.customer.customer.service.repository.entity.Region;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+import com.example.store.customer.repository.entity.Customer;
+import com.example.store.customer.repository.entity.Region;
 
 import java.util.List;
 

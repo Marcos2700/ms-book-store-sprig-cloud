@@ -1,4 +1,4 @@
-package com.example.store.customer.customer.service.controller;
+package com.example.store.customer.controller;
 
 import lombok.Builder;
 import lombok.Getter;

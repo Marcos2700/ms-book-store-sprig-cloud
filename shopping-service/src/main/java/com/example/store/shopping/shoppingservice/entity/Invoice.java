@@ -1,5 +1,6 @@
 package com.example.store.shopping.shoppingservice.entity;
 
+import com.example.store.shopping.shoppingservice.model.Customer;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
@@ -36,6 +37,9 @@ public class Invoice {
     @JoinColumn(name = "invoice_id")
     private List<InvoiceItems> items;
     private String state;
+
+    @Transient
+    private Customer customer;
 
     public Invoice(){
         this.items = new ArrayList<>();

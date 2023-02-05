@@ -1,23 +1,35 @@
 package com.example.store.shopping.shoppingservice.service;
 
+import com.example.store.shopping.shoppingservice.client.BookClient;
+import com.example.store.shopping.shoppingservice.client.CustomerClient;
 import com.example.store.shopping.shoppingservice.entity.Invoice;
-import com.example.store.shopping.shoppingservice.repository.InvoiceItemsRepository;
+import com.example.store.shopping.shoppingservice.entity.InvoiceItems;
+import com.example.store.shopping.shoppingservice.model.Book;
+import com.example.store.shopping.shoppingservice.model.Customer;
+//import com.example.store.shopping.shoppingservice.repository.InvoiceItemsRepository;
 import com.example.store.shopping.shoppingservice.repository.InvoiceRepository;
-import lombok.extern.slf4j.Slf4j;
+//import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
-@Slf4j
+//@Slf4j
 @Service
 public class InvoiceServiceImpl implements InvoiceService {
 
     @Autowired
     private InvoiceRepository invoiceRepository;
 
+    //@Autowired
+    //private InvoiceItemsRepository invoiceItemsRepository;
+
     @Autowired
-    private InvoiceItemsRepository invoiceItemsRepository;
+    private CustomerClient customerClient;
+
+    @Autowired
+    private BookClient bookClient;
 
     @Override
     public List<Invoice> findInvoiceAll() {
@@ -33,7 +45,14 @@ public class InvoiceServiceImpl implements InvoiceService {
         }
 
         invoice.setState("CREATED");
-        return invoiceRepository.save(invoice);
+        invoiceDB = invoiceRepository.save(invoice);
+
+        invoiceDB.getItems().forEach(invoiceItem -> {
+            bookClient.updateStockBook(invoiceItem.getBookId(), invoiceItem.getQuantity() * -1);
+        }
+        );  
+
+        return invoiceDB;
     }
 
     @Override
@@ -66,6 +85,21 @@ public class InvoiceServiceImpl implements InvoiceService {
 
     @Override
     public Invoice getInvoice(Long id) {
-        return invoiceRepository.findById(id).orElse(null);
+        Invoice invoice =  invoiceRepository.findById(id).orElse(null);
+
+        if(invoice != null){
+            Customer customer = customerClient.getCustomer(invoice.getCustomerId()).getBody();
+            invoice.setCustomer(customer);
+            List<InvoiceItems> listItems = invoice.getItems().stream().map(invoiceItem -> {
+                Book book = bookClient.getBook(invoiceItem.getBookId()).getBody();
+                invoiceItem.setBook(book);
+                return invoiceItem;
+            }).collect(Collectors.toList());
+
+            invoice.setItems(listItems);
+        }
+
+        return invoice;
+
     }
 }

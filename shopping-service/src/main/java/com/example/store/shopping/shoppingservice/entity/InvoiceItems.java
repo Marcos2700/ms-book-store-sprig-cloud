@@ -5,6 +5,8 @@ import lombok.Data;
 import javax.persistence.*;
 import javax.validation.constraints.Positive;
 
+import com.example.store.shopping.shoppingservice.model.Book;
+
 @Entity
 @Data
 @Table(name = "invoice_items")
@@ -24,6 +26,9 @@ public class InvoiceItems {
 
     @Transient
     private Double subtotal;
+
+    @Transient
+    private Book book;
 
     public InvoiceItems() {
         this.quantity = 0;
