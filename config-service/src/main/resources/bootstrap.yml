@@ -9,7 +9,7 @@ spring:
           uri: https://github.com/Marcos2700/ms-book-store-spring-cloud.git
           searchPaths: config-data
           username: Marcos2700
-          password: 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
+          password: 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
   security:
     user:
       name: root
