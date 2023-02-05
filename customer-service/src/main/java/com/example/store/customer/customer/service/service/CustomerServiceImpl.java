@@ -3,13 +3,13 @@ package com.example.store.customer.customer.service.service;
 import com.example.store.customer.customer.service.repository.CustomerRepository;
 import com.example.store.customer.customer.service.repository.entity.Customer;
 import com.example.store.customer.customer.service.repository.entity.Region;
-import lombok.extern.slf4j.Slf4j;
+//import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Slf4j
+//@Slf4j
 @Service
 public class CustomerServiceImpl implements CustomerService{
 

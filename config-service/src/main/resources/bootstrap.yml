@@ -8,8 +8,8 @@ spring:
         git:
           uri: https://github.com/Marcos2700/ms-book-store-spring-cloud.git
           searchPaths: config-data
-          username: ${GIT_USERNAME}
-          password: ${GIT_TOKEN}
+          username: Marcos2700
+          password: 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
   security:
     user:
       name: root
