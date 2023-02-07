@@ -11,10 +11,10 @@ public class CustomerHystrixFallbackFactory implements CustomerClient {
     @Override
     public ResponseEntity<Customer> getCustomer(Long id) {
         Customer customer = Customer.builder()
-                                .firstname("null")
-                                .lastname("null")
-                                .email("null")
-                                .photoUrl("null")
+                                .firstname("none")
+                                .lastname("none")
+                                .email("none")
+                                .photoUrl("none")
                                 .build();
         return ResponseEntity.ok(customer);
     }

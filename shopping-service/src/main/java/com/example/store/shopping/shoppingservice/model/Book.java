@@ -2,9 +2,10 @@ package com.example.store.shopping.shoppingservice.model;
 
 import java.util.Date;
 
+import lombok.Builder;
 import lombok.Data;
 
-@Data
+@Data @Builder
 public class Book {
     private Long id;
     private String title;
